@@ -1,6 +1,6 @@
 package com.sample.core.domain;
 
-public class Postre extends GenericEntity implements  Vendible{
+public class Postre extends GenericEntity implements  Pedible{
 
 	private int precio;
 	

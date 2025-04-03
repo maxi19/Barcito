@@ -13,7 +13,6 @@ import com.sample.core.service.BebidaService;
 import com.sample.core.service.BebidaServiceImpl;
 
 @WebServlet( urlPatterns =  "/crearBebida")
-
 public class BebidaController extends HttpServlet {
 	
 
@@ -23,9 +22,8 @@ public class BebidaController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-	String tituloe=(String)	req.getAttribute("titulo");
+	String titulo=(String)	req.getAttribute("titulo");
 	
-	String titulo =req.getParameter("titulo");
 		
 	String precio = req.getParameter("precio");
 	String descripcion = req.getParameter("descripcion");

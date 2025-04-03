@@ -2,7 +2,7 @@ package com.sample.core.domain;
 
 import com.sample.core.enums.TipoEnum;
 
-public class Menu extends GenericEntity implements Vendible {
+public class Menu extends GenericEntity implements Pedible {
 
 	private String titulo;
 	

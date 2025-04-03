@@ -1,6 +1,6 @@
 package com.sample.core.domain;
 
-public class Plato extends GenericEntity implements Vendible {
+public class Plato extends GenericEntity implements Pedible {
 
 	private int precio;
 	

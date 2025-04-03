@@ -1,6 +1,6 @@
 package com.sample.core.domain;
 
-public class Bebida extends GenericEntity implements Vendible {
+public class Bebida extends GenericEntity implements Pedible {
 
 	private int precio;
 	private String titulo;

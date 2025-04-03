@@ -4,20 +4,20 @@ import java.util.List;
 
 public class Ticket {
 
-	private List<Vendible> vendibles;
+	private List<Pedible> vendibles;
 	private String empresa;
 	private String cuit;
 	
 
-	 public Ticket( List<Vendible> vendibles, String empresam, String cuit  ) {
+	 public Ticket( List<Pedible> vendibles, String empresam, String cuit  ) {
 		 this.vendibles = vendibles;
 	}
 
-	public List<Vendible> getVendibles() {
+	public List<Pedible> getVendibles() {
 		return vendibles;
 	}
 
-	public void setVendibles(List<Vendible> vendibles) {
+	public void setVendibles(List<Pedible> vendibles) {
 		this.vendibles = vendibles;
 	}
 
@@ -43,7 +43,7 @@ public class Ticket {
 	public void immprimir() {
 		int total = 0;
 		
-		for (Vendible vendible : vendibles) {
+		for (Pedible vendible : vendibles) {
 			
 			System.out.println(" descripcion " + vendible.dameTitulo()   );
 			total = total + vendible.damePrecio();

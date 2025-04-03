@@ -20,6 +20,9 @@
 <body>
 
 <div class="container">
+	<nav class="navbar navbar-light bg-light mt-4">
+	  <a class="navbar-brand" href="#">Productos</a>
+	</nav>
 	<div class="card-group homeitem mt-4" >
 		<div class="card m-2" >
 		  <img class="card-img-top" src="https://cdn.pixabay.com/photo/2023/05/31/11/15/fish-8031138_960_720.jpg" alt="Card image cap">
@@ -56,6 +59,42 @@
 		    <a href="#" class="btn btn-primary">Ir</a>
 		  </div>
 		</div>
+	</div>
+	<nav class="navbar navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Mesas</a>
+	</nav>
+
+	<div class="card-group homeitem mt-4" >
+		<div class="card m-2" >
+		  <div class="card-body">
+		    <h5 class="card-title">Mesa 1</h5>
+		    <a href="#" class="btn btn-primary">Pedidos</a>
+		    <a href="#" class="btn btn-danger">Reservar</a>    
+		  </div>
+		</div>
+	
+		<div class="card m-2" >
+		  <div class="card-body">
+		    <h5 class="card-title">Mesa 2</h5>
+		    <a href="#" class="btn btn-primary">Pedidos</a>
+		    <a href="#" class="btn btn-danger">Reservar</a>
+		  </div>
+		</div>
+		
+			<div class="card m-2" >
+			  <div class="card-body">
+			    <h5 class="card-title">Mesa 3</h5>
+			    <a href="#" class="btn btn-primary">Pedidos</a>
+			    <a href="#" class="btn btn-danger">Reservar</a>  
+			  </div>
+			</div>
+			<div class="card m-2" >
+			  <div class="card-body">
+			    <h5 class="card-title">Mesa 4</h5>
+			    <a href="#" class="btn btn-primary">Pedidos</a>
+			    <a href="#" class="btn btn-danger">Reservar</a>  
+			  </div>
+			</div>
 	</div>
 
 
