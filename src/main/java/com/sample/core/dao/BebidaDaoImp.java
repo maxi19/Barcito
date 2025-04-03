@@ -12,11 +12,11 @@ import com.sample.core.exceptions.ErrorException;
 
 public class BebidaDaoImp implements BebidaDao {
 
-	private static final String queryConsultarPLato = "SELECT id, Precio, Descripcion FROM Bebida where id=?";
+	private static final String queryConsultarBebida = "SELECT id, Precio, Descripcion FROM Bebida where id=?";
 
-	private static final String queryAddPLato = "INSERT INTO bebida ( titulo, descripcion, precio) VALUES (?,?,?)";
+	private static final String queryAddBebida= "INSERT INTO bebida ( titulo, descripcion, precio) VALUES (?,?,?)";
 
-	private static final String queryDeletePLato = "DELETE FROM bebida WHERE id=?";
+	private static final String queryDeleteBebida = "DELETE FROM bebida WHERE id=?";
 
 	
 	
@@ -26,7 +26,7 @@ public class BebidaDaoImp implements BebidaDao {
 		 ResultSet rs = null;
 		 PreparedStatement st = null;
 		 try{
-			st = conexion.dameConnection().prepareStatement(queryConsultarPLato);
+			st = conexion.dameConnection().prepareStatement(queryConsultarBebida);
 			st.setInt(1, id);
 			rs = st.executeQuery();
 			if (rs.next()) {
@@ -58,7 +58,7 @@ public class BebidaDaoImp implements BebidaDao {
 		 ResultSet rs = null;
 		 PreparedStatement st = null;
 		 try{
-			st = conexion.dameConnection().prepareStatement(queryAddPLato);
+			st = conexion.dameConnection().prepareStatement(queryAddBebida);
 			st.setString(1, titulo);
 			st.setString(2, descripcion);
 			st.setInt(1, precioEntero);
@@ -80,7 +80,7 @@ public class BebidaDaoImp implements BebidaDao {
 		 ResultSet rs = null;
 		 PreparedStatement st = null;
 		 try{
-			st = conexion.dameConnection().prepareStatement(queryDeletePLato);
+			st = conexion.dameConnection().prepareStatement(queryDeleteBebida);
 			st.setInt(1, id);
 			rs = st.executeQuery();
 			if (!rs.next()) {

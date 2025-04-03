@@ -8,9 +8,5 @@
 </head>
 <body>
 
-<%  String mensaje =  (String) request.getAttribute("mensaje"); %>
-
-<p>  <%=mensaje%></p>
-
 </body>
 </html>

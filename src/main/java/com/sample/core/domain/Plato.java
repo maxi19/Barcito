@@ -21,6 +21,13 @@ public class Plato extends GenericEntity implements Vendible {
 		this.titulo = titulo;
 	}
 	
+	public Plato(int id,int precio,String descripcion, String titulo) {
+		super.setId(id);
+		this.precio = precio;
+		this.titulo = titulo;
+		this.descripcion = descripcion;
+	}
+	
 	
 	
 	

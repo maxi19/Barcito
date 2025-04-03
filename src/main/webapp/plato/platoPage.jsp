@@ -14,17 +14,23 @@
 </head>
 <body>
 
-<%  List<Plato> platos  =  (List) request.getAttribute("platos"); %>
+<div class="container mt-4">
 
 
+<span>
+		<a class="btn btn-primary"  href="<%=request.getContextPath()%>/formulario?form=platoform" > Nuevo </a>
+</span>
+
+<%  List<Plato> platos  = (List) request.getAttribute("platos"); %>
 
 <table class="table">
   <thead>
     <tr>
       <th scope="col">id</th>
-      <th scope="col">precio</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Precio</th>
       <th scope="col">Descripcion</th>
-      <th scope="col">operaciones</th>
+      <th scope="col">Operaciones</th>
     </tr>
   </thead>
   <tbody>
@@ -33,6 +39,7 @@
 	 
 	<tr bgcolor="white">
 	<td><%=platos.get(i).getId() %></td>
+	<td><%=platos.get(i).getTitulo() %></td>
 	<td><%=platos.get(i).getPrecio()%></td>
 	<td><%=platos.get(i).getDescripcion()%></td>
 	<td> 
@@ -46,8 +53,7 @@
 
 </table>
 
-
-
+</div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

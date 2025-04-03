@@ -18,6 +18,8 @@ public class PlatoDaoImp implements PlatoDao {
 	private static final String queryList = "SELECT id, precio, descripcion, titulo FROM plato";
 	
 	private static final String queryConsultarPLato = "SELECT id, precio, descripcion, titulo FROM plato where id=?";
+	
+	private static final String queryAddPLato = "INSERT INTO plato ( precio, descripcion, titulo) VALUES (?,?,?)";
 
 	
 	public List<Plato> list() throws Exception {
@@ -30,7 +32,7 @@ public class PlatoDaoImp implements PlatoDao {
 			rs = st.executeQuery();
 			platos = new ArrayList<Plato>();
 			 while (rs.next()) {
-				 producto = new Plato(rs.getInt(1),rs.getInt(2), rs.getString(3));
+				 producto = new Plato(rs.getInt(1),rs.getInt(2), rs.getString(3), rs.getString(4));
 				 platos.add(producto);
 			}
 				
@@ -85,8 +87,35 @@ public class PlatoDaoImp implements PlatoDao {
 
 
 	public void save(String titulo, String descripcion, int precio) throws Exception {
-		// TODO Auto-generated method stub
+	
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			
+			st = conexion.dameConnection().prepareStatement(queryAddPLato);		
+			st.setInt(1, precio);
+			st.setString(2, descripcion);
+			st.setString(3, titulo);
+			int result= st.executeUpdate();
+			if (result==0 ) {
+				throw new Exception("hubo un error en base");
+			}
+		} catch (Exception e) {
+			System.out.println(e.getCause());
+		}finally {
+			finalizarConexion(st);
+		}
 		
+	}
+	
+	
+	private void finalizarConexion(PreparedStatement st) {
+		try {
+			if(st != null)st.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }

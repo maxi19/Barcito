@@ -20,8 +20,7 @@ public class PlatoServiceImpl implements PlatoService{
 	}
 
 	public void crearPlato(String titulo, String descripcion, int precio) throws Exception {
-		// TODO Auto-generated method stub
-		
+		platoDao.save(titulo, descripcion, precio);
 	}
 	
 	public void delete(int id) throws Exception{

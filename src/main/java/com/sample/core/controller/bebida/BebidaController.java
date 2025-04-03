@@ -35,13 +35,10 @@ public class BebidaController extends HttpServlet {
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/LeerDatosBebidas");
         dispatcher.forward(req, resp);
         
-	} catch (Exception e) {
-
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	

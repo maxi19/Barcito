@@ -1,0 +1,77 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<style type="text/css">
+	#homeitem{
+		display: flex;
+	}
+	#card{
+		width: 100px;
+	}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="card-group homeitem mt-4" >
+		<div class="card m-2" >
+		  <img class="card-img-top" src="https://cdn.pixabay.com/photo/2023/05/31/11/15/fish-8031138_960_720.jpg" alt="Card image cap">
+		  <div class="card-body">
+		    <h5 class="card-title">Plato</h5>
+		    <p class="card-text">Platos disponibles</p>
+		    <a href="<%= request.getContextPath()%>/LeerDatosPlato" class="btn btn-primary">Ir</a>
+		  </div>
+		</div>
+		
+		<div class="card m-2" >
+		  <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/08/06/04/16/cupcake-2588646_1280.jpg" alt="Card image cap">
+		  <div class="card-body">
+		    <h5 class="card-title">Postres</h5>
+		    <p class="card-text">postres disponibls</p>
+		    <a href="<%= request.getContextPath()%>/LeerDatosBebidas" class="btn btn-primary"  >Ir</a>
+		  </div>
+		</div>
+		
+		<div class="card m-2" >
+		  <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/08/17/13/24/flower-5495384_1280.jpg" alt="Card image cap">
+		  <div class="card-body">
+		    <h5 class="card-title">Bebidas</h5>
+		    <p class="card-text">Bebida disponible</p>
+		    <a href="<%= request.getContextPath()%>/LeerDatosBebidas" class="btn btn-primary">Ir</a>
+		  </div>
+		</div>
+		
+		<div class="card m-2" >
+		  <img class="card-img-top" src="https://cdn.pixabay.com/photo/2016/11/29/12/54/cafe-1869656_1280.jpg" alt="Card image cap">
+		  <div class="card-body">
+		    <h5 class="card-title">Menu</h5>
+		    <p class="card-text">menu disponibles</p>
+		    <a href="#" class="btn btn-primary">Ir</a>
+		  </div>
+		</div>
+	</div>
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+</body>
+</html>

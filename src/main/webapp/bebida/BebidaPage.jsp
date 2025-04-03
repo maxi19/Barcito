@@ -17,7 +17,11 @@
 
 <%  List<Bebida> bebidas  =  (List) request.getAttribute("bebidas"); %>
 
+<div class="container">
 
+<span>
+		<a class="btn btn-primary"  href="<%=request.getContextPath()%>/formulario?form=bebidaform" > Nuevo </a>
+</span>
 
 <table class="table">
   <thead>
@@ -46,6 +50,9 @@
  </tbody>
 
 </table>
+
+
+</div>
 
 
 

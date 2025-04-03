@@ -23,6 +23,10 @@ import com.sample.core.service.PlatoServiceImpl;
 @WebServlet( urlPatterns = "/LeerDatosPlato")
 public class LeerDatosPlato extends HttpServlet{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	PlatoService platoService = new PlatoServiceImpl();
 	
 	
@@ -51,7 +55,9 @@ public class LeerDatosPlato extends HttpServlet{
         */
         
 		try {
-			req.setAttribute("conjuntoResultados", platoService.listarPlatos());
+			
+			req.setAttribute("platos", platoService.listarPlatos());
+			req.getRequestDispatcher("/plato/platoPage.jsp").forward(req, resp);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

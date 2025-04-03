@@ -53,7 +53,7 @@ public class LeerBebidasController extends HttpServlet {
     	
     	try {
 			request.setAttribute("conjuntoResultados", bebidaService.listarBebidas());
-			request.getRequestDispatcher("/VerBebidas.jsp").forward(request, response);
+			request.getRequestDispatcher("/bebida/VerBebidas.jsp").forward(request, response);
     	} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

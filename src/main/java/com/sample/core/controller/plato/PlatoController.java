@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,9 +32,9 @@ public class PlatoController extends HttpServlet {
 		// Obtener datos del formulario en index
 		// dentro de getParameter, cada parametro debe ser igual a los atributos "name"
 		// de las etiquetas input del formulario
-		
-		String precioString = req.getParameter("precio");
+		String titulo = req.getParameter("titulo");
 		String descripcion = req.getParameter("descripcion");
+		String precioString = req.getParameter("precio");
 		int precioInt = 0;
 		
 		
@@ -53,7 +54,9 @@ public class PlatoController extends HttpServlet {
 		precioInt = Integer.parseInt(precioString);
 		
 		try {
-			platoservice.crearPlato("",descripcion, precioInt);
+			platoservice.crearPlato(titulo,descripcion, precioInt);
+			//req.getRequestDispatcher("/LeerDatosPlato").forward(req, resp);
+			resp.sendRedirect("/LeerDatosPlato");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
