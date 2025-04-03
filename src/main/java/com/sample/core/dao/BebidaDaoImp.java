@@ -1,0 +1,103 @@
+package com.sample.core.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.sample.core.dao.config.Conexion;
+import com.sample.core.domain.Bebida;
+import com.sample.core.domain.Plato;
+import com.sample.core.exceptions.ErrorException;
+
+public class BebidaDaoImp implements BebidaDao {
+
+	private static final String queryConsultarPLato = "SELECT id, Precio, Descripcion FROM Bebida where id=?";
+
+	private static final String queryAddPLato = "INSERT INTO bebida ( titulo, descripcion, precio) VALUES (?,?,?)";
+
+	private static final String queryDeletePLato = "DELETE FROM bebida WHERE id=?";
+
+	
+	
+	private Conexion conexion = Conexion.getInstance();
+
+	public Bebida findById(int id) throws Exception {
+		 ResultSet rs = null;
+		 PreparedStatement st = null;
+		 try{
+			st = conexion.dameConnection().prepareStatement(queryConsultarPLato);
+			st.setInt(1, id);
+			rs = st.executeQuery();
+			if (rs.next()) {
+				return new Bebida(rs.getInt(1), rs.getInt(2),rs.getString(3));
+			}
+
+		 }catch (Exception e) {
+				throw new ErrorException("Hubo un error al realizar la consulta", e);
+		}finally {
+			try {
+				st.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return null;
+	}
+
+	public List<Bebida> list() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void save(String titulo, String descripcion, int precioEntero) throws ErrorException {
+
+		 ResultSet rs = null;
+		 PreparedStatement st = null;
+		 try{
+			st = conexion.dameConnection().prepareStatement(queryAddPLato);
+			st.setString(1, titulo);
+			st.setString(2, descripcion);
+			st.setInt(1, precioEntero);
+			rs = st.executeQuery();
+		 }catch (Exception e) {
+				throw new ErrorException("Hubo un error al realizar la consulta", e);
+		}finally {
+			try {
+				st.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}		
+	}
+
+	public void delete(int id) throws Exception {
+		 ResultSet rs = null;
+		 PreparedStatement st = null;
+		 try{
+			st = conexion.dameConnection().prepareStatement(queryDeletePLato);
+			st.setInt(1, id);
+			rs = st.executeQuery();
+			if (!rs.next()) {
+				throw new Error("No se encontro el registro");
+			}
+
+		 }catch (Exception e) {
+				throw new ErrorException("Hubo un error al realizar la consulta", e);
+		}finally {
+			try {
+				st.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+	}
+
+}
