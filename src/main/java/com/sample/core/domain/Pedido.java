@@ -5,7 +5,8 @@ import java.util.List;
 public class Pedido {
 
 	private List<Pedible> pedibles;
-
+	
+	private int idMesa;
 	
 	
 	public List<Pedible> getPedibles() {
@@ -23,6 +24,13 @@ public class Pedido {
 	public String getTicket() {
 		return null;
 	}
-	
 
+	public int getIdMesa() {
+		return idMesa;
+	}
+
+	public void setIdMesa(int idMesa) {
+		this.idMesa = idMesa;
+	}
+	
 }

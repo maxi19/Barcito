@@ -12,4 +12,8 @@ public class PedidoServiceImp implements PedidoService {
 		return null;
 	}
 
+	public void save(Pedido pedido) throws Exception {
+		
+	}
+
 }
