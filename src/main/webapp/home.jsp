@@ -5,17 +5,15 @@
 <head>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+	<title>Insert title here</title>
 
-<style type="text/css">
-	#homeitem{
-		display: flex;
-	}
-	#card{
-		width: 100px;
-	}
-
-</style>
+	<script src="<%=request.getContextPath()%>/scripts/jquery/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+			var contextPath="<%=request.getContextPath()%>";
+	</script>
+	<script src="<%=request.getContextPath()%>/scripts/scripts-barcito.js"></script>
+	
 </head>
 <body>
 
@@ -23,7 +21,7 @@
 	<nav class="navbar navbar-light bg-light mt-4">
 	  <a class="navbar-brand" href="#">Productos</a>
 	</nav>
-	<div class="card-group homeitem mt-4" >
+	<div class="card-group homeitem mt-4" 1>
 		<div class="card m-2" >
 		  <img class="card-img-top" src="https://cdn.pixabay.com/photo/2023/05/31/11/15/fish-8031138_960_720.jpg" alt="Card image cap">
 		  <div class="card-body">
@@ -64,7 +62,8 @@
 	  <a class="navbar-brand" href="#">Mesas</a>
 	</nav>
 
-	<div class="card-group homeitem mt-4" >
+	<div class="card-group homeitem mt-4"  id="boxGroupMesas">
+		<!-- 
 		<div class="card m-2" >
 		  <div class="card-body">
 		    <h5 class="card-title">Mesa 1</h5>
@@ -95,22 +94,14 @@
 			    <a href="#" class="btn btn-danger">Reservar</a>  
 			  </div>
 			</div>
+			 -->
 	</div>
 
 
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
+
+					
 </body>
 </html>
