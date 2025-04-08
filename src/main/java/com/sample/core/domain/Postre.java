@@ -6,7 +6,14 @@ public class Postre extends GenericEntity implements  Pedible{
 	
 	private String titulo;
 	
+	private String descripcion;
 	
+	public Postre(int id,String titulo, int precio,String descripcion) {
+		super.setId(id);
+		this.titulo = titulo;
+		this.precio = precio;
+		this.descripcion = descripcion;
+	}
 	
 	
 	public Postre(int precio, String titulo) {
@@ -37,7 +44,15 @@ public class Postre extends GenericEntity implements  Pedible{
 	public String dameTitulo() {
 		return this.getTitulo();
 	}
-	
-	
+
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 	
 }

@@ -29,27 +29,7 @@ public class LeerBebidasController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
-    	/*
-        try (Connection conexion = ConexionBD.obtenerConexion()) {
-            try (Statement statement = conexion.createStatement()) {
-
-                // Consulta para obtener los datos de los productos
-                String sql = "SELECT titulo, precio, descripcion FROM Bebida";
-
-                try (ResultSet conjuntoResultados = statement.executeQuery(sql)) {
-
-                    // Enviar los resultados a la JSP
-                    request.setAttribute("conjuntoResultados", conjuntoResultados);
-                    request.getRequestDispatcher("/VerBebidas.jsp").forward(request, response);
-                    
-                }
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        */
-    	
+    
     	
     	try {
 			request.setAttribute("conjuntoResultados", bebidaService.listarBebidas());

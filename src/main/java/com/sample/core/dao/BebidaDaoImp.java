@@ -3,11 +3,12 @@ package com.sample.core.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.sample.core.dao.config.Conexion;
 import com.sample.core.domain.Bebida;
-import com.sample.core.domain.Plato;
+
 import com.sample.core.exceptions.ErrorException;
 
 public class BebidaDaoImp implements BebidaDao {
@@ -18,7 +19,8 @@ public class BebidaDaoImp implements BebidaDao {
 
 	private static final String queryDeleteBebida = "DELETE FROM bebida WHERE id=?";
 
-	
+	private static final String queryList = "SELECT id, titulo, descripcion, precio FROM bebida";
+
 	
 	private Conexion conexion = Conexion.getInstance();
 
@@ -30,7 +32,7 @@ public class BebidaDaoImp implements BebidaDao {
 			st.setInt(1, id);
 			rs = st.executeQuery();
 			if (rs.next()) {
-				return new Bebida(rs.getInt(1), rs.getInt(2),rs.getString(3));
+				return new Bebida(rs.getInt(1),rs.getString(2), rs.getString(3),rs.getInt(4));
 			}
 
 		 }catch (Exception e) {
@@ -49,8 +51,27 @@ public class BebidaDaoImp implements BebidaDao {
 	}
 
 	public List<Bebida> list() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+
+		PreparedStatement st= null;
+		ResultSet rs = null;
+		List<Bebida> bebidas = new ArrayList<Bebida>();
+
+		try {
+			st = conexion.dameConnection().prepareStatement(queryList);
+			rs = st.executeQuery();
+			
+			while (rs.next()) {
+				bebidas.add(new Bebida(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4)));
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getCause());
+		}finally {
+			st.close();
+			rs.close();
+		}
+		
+		return bebidas;
 	}
 
 	public void save(String titulo, String descripcion, int precioEntero) throws ErrorException {

@@ -2,6 +2,7 @@ package com.sample.core.domain;
 
 public class Bebida extends GenericEntity implements Pedible {
 
+	
 	private int precio;
 	private String titulo;
 	private String descripcion;
@@ -9,12 +10,14 @@ public class Bebida extends GenericEntity implements Pedible {
 	public Bebida(){
 		
 	}
+
 	
 	
-	public Bebida(int id,int precio, String titulo) {
+	public Bebida(int id,String titulo,String descripcion,int precio ) {
 		super.setId(id);
-		this.precio = precio;
 		this.titulo = titulo;
+		this.precio = precio;
+		this.descripcion = descripcion;
 	}
 	
 	

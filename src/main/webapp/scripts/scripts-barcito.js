@@ -12,10 +12,8 @@ $(function() {
                 //iteramos la lista
                 $.each(response, function(index,value){
 
+                    $("#boxGroupMesas").append("");
 
-
-                    //$("#boxGroupMesas").append("div").addClass("card m-2").text(value.id);
-                    crarCaja(value);
                     
                     
                 })
@@ -23,11 +21,7 @@ $(function() {
         });
     }  
 
-    function crarCaja(value) {
-        divCard = document.createElement( "div" ).addClass("card m-2"),
-        divCard.append("div").addClass("card-body")
-        $("#boxGroupMesas").append(divCard);
-    }
+
 
     $(document).ready(function () {
         cargarMesas();    
