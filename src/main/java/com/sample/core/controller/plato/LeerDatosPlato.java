@@ -33,27 +33,7 @@ public class LeerDatosPlato extends HttpServlet{
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-		/*
-        try (Connection connnection = Conexion.dameConnection()) {
-            try (Statement statement = connnection.createStatement()) {
-
-                // Consulta para obtener los datos de los productos
-                String sql = "SELECT idPlato, Precio, Descripcion FROM platos";
-
-                try (ResultSet conjuntoResultados = statement.executeQuery(sql)) {
-
-                    // Enviar los resultados a la JSP
-                    req.setAttribute("conjuntoResultados", conjuntoResultados);
-                    req.getRequestDispatcher("webapp/platoFormBaja.jsp").forward(req, resp);
-                }
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        
-        */
-        
+	
 		try {
 			
 			req.setAttribute("platos", platoService.listarPlatos());

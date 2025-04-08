@@ -24,7 +24,7 @@ public class PlatoServiceImpl implements PlatoService{
 	}
 	
 	public void delete(int id) throws Exception{
-	
+		platoDao.delete(id);
 	}
 
 }

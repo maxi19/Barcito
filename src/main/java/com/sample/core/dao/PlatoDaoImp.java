@@ -21,6 +21,8 @@ public class PlatoDaoImp implements PlatoDao {
 	
 	private static final String queryAddPLato = "INSERT INTO plato ( precio, descripcion, titulo) VALUES (?,?,?)";
 
+	private static final String queryDeletePlato = "DELETE from  plato where id = ?";
+
 	
 	public List<Plato> list() throws Exception {
 		 ResultSet rs = null;
@@ -81,8 +83,15 @@ public class PlatoDaoImp implements PlatoDao {
 
 
 	public void delete(int id) throws Exception {
-		// TODO Auto-generated method stub
+
+		PreparedStatement st = this.conexion.dameConnection().prepareStatement(queryDeletePlato);
+		st.setInt(1, id);
+		int registros = st.executeUpdate();
 		
+		if (registros==0) {
+			throw new Exception("hubo un error ");
+		}		
+		st.close();
 	}
 
 
