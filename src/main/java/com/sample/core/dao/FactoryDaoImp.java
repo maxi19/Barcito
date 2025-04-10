@@ -13,4 +13,10 @@ public class FactoryDaoImp implements FactoryDao {
 	public BebidaDao getBebidaDao() {
 		return new BebidaDaoImp();
 	}
+
+	public PostreDao getPostreDao() {
+		return new PostreDaoImp();
+	}
+	
+	
 }

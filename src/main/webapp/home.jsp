@@ -36,7 +36,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Postres</h5>
 		    <p class="card-text">postres disponibls</p>
-		    <a href="<%= request.getContextPath()%>/LeerDatosBebidas" class="btn btn-primary"  >Ir</a>
+		    <a href="<%= request.getContextPath()%>/LeerDatosPostre" class="btn btn-primary"  >Ir</a>
 		  </div>
 		</div>
 		
@@ -54,9 +54,10 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Menu</h5>
 		    <p class="card-text">menu disponibles</p>
-		    <a href="#" class="btn btn-primary">Ir</a>
+		    <a href="<%= request.getContextPath()%>/leerDatosMenu" class="btn btn-primary">Ir</a>
 		  </div>
 		</div>
+		
 	</div>
 	<nav class="navbar navbar-light bg-light">
 	  <a class="navbar-brand" href="#">Mesas</a>

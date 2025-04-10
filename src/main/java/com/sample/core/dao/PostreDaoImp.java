@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
 import com.sample.core.dao.config.Conexion;
 import com.sample.core.domain.Postre;
 
@@ -15,9 +14,11 @@ public class PostreDaoImp implements PostreDao{
 
 	private static final String queryList = "SELECT id, titulo, descripcion, precio FROM postre";
 	
-	private static final String queryConsultarPostre = "SELECT id, Precio, Descripcion FROM bebida where id=?";
+	private static final String queryConsultarPostre = "SELECT id, precio, Descripcion FROM bebida where id=?";
 
 	private static final String queryAddPostre = "INSERT INTO postre ( titulo, descripcion, precio) VALUES (?,?,?)";
+	
+	private static final String queryDeletePostre = "DELETE from postre where id = ?";
 
 	private Conexion conexion = Conexion.getInstance();
 
@@ -53,12 +54,27 @@ public class PostreDaoImp implements PostreDao{
 
 	public void save(String titulo, String descripcion, int precio) throws Exception {
 
-	PreparedStatement st = conexion.dameConnection().prepareStatement(queryAddPostre);
-		st.setInt(1, precio);
-		st.setString(2, descripcion);
-		st.setString(3, titulo);
-		st.executeQuery();
-		finalizarConexion(st);
+		PreparedStatement st = null;
+		try {
+			 st = conexion.dameConnection().prepareStatement(queryAddPostre);
+			st.setString(1, titulo);
+			st.setString(2, descripcion);
+			st.setInt(3, precio);
+		
+			
+			int result =  st.executeUpdate();
+			if (result == 0) {
+				throw new Exception("hubo un error fijate che");
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getStackTrace());
+		
+		}finally {
+			finalizarConexion(st);
+			
+		}
+		 
 	}
 
 	
@@ -79,5 +95,17 @@ public class PostreDaoImp implements PostreDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public void delete(int id) throws Exception {
+
+		PreparedStatement st = this.conexion.dameConnection().prepareStatement(queryDeletePostre);
+		st.setInt(1, id);
+		int registros = st.executeUpdate();
+		
+		if (registros==0) {
+			throw new Exception("hubo un error ");
+		}		
+		st.close();
 	}
 }

@@ -20,7 +20,7 @@ public class LoadForm extends HttpServlet{
 
 	private static String BEBIDA_FORM ="bebida/BebidaForm.jsp";
 
-	private static String POSTRE_FORM ="postre/PostreForm.jsp";
+	private static String POSTRE_FORM ="postre/postreForm.jsp";
 
 	private static String MENU_FORM ="menu/menuForm.jsp";
 

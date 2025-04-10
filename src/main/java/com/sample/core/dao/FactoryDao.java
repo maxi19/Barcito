@@ -8,4 +8,5 @@ public interface FactoryDao {
 	
 	public BebidaDao getBebidaDao();
 
+	public PostreDao getPostreDao();
 }

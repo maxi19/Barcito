@@ -17,6 +17,7 @@ $(document).ready(function () {
                 dataType: "json",
                 success: function (response) {
                     var $dropdown = $("#cmbBebida");
+                    $("#cmbBebida").empty();
                     $.each(response, function() {
                         $dropdown.append($("<option />").val(this.id).text(this.titulo));
                     });
@@ -35,6 +36,7 @@ $(document).ready(function () {
                 data: "data",
                 dataType: "json",
                 success: function (response) {
+                    $("#cmbPostre").empty();
                     var $dropdown = $("#cmbPostre");
                     $.each(response, function() {
                         $dropdown.append($("<option />").val(this.id).text(this.titulo));

@@ -18,7 +18,7 @@ private Conexion conexion = Conexion.getInstance();
 	
 	private static final String queryList = "SELECT id, Precio, Descripcion FROM Bebida";
 	
-	private static final String queryConsultarBebida = "SELECT idBebida, Precio, Descripcion FROM Plato where idBebida=?";
+	private static final String queryConsultarBebida = "SELECT id, precio, descripcion, titulo FROM Plato where idbebida=?";
 
 
 	public List<Bebida> listarBebida() throws Exception {
@@ -63,7 +63,7 @@ private Conexion conexion = Conexion.getInstance();
 			st.setInt(1, id);
 			rs = st.executeQuery();
 			if (rs.next()) {
-				return new Bebida(rs.getInt(1), rs.getInt(2),rs.getString(3));
+				//return new Bebida(rs.getInt(1), rs.getsrt(2),rs.getString(3));
 				
 			}
 
