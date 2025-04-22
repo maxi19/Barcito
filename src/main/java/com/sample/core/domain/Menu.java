@@ -12,7 +12,17 @@ public class Menu extends GenericEntity implements Pedible {
 
 	private TipoEnum tipo;
 
-	
+	public Menu() {
+		
+	}
+	public Menu(int id , String titulo, int precio, String descripcion, TipoEnum tipo) {
+		super.setId(id);
+		this.titulo = titulo;
+		this.precio = precio;
+		this.descripcion = descripcion;
+		this.tipo = tipo;
+	}
+
 	public TipoEnum getTipo() {
 		return tipo;
 	}

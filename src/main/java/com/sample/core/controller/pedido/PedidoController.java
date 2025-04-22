@@ -19,7 +19,7 @@ import com.sample.core.service.MesaServiceImp;
 import com.sample.core.service.PedidoService;
 import com.sample.core.service.PedidoServiceImp;
 
-@WebServlet( urlPatterns =  "/pedidos")
+@WebServlet( urlPatterns =  "/pedidosTest")
 public class PedidoController extends HttpServlet {
 
 	/**
@@ -47,14 +47,7 @@ public class PedidoController extends HttpServlet {
 	}
 
 
-	@Override
-	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
-		
-	}
 
-	
 	
 	
 	

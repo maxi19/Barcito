@@ -13,6 +13,10 @@ public class Pedido {
 		return pedibles;
 	}
 
+	public void addPedible(Pedible pedible) {
+		this.pedibles.add(pedible);
+	}
+	
 	public void setPedibles(List<Pedible> pedibles) {
 		this.pedibles = pedibles;
 	}

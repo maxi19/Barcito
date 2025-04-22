@@ -9,5 +9,8 @@ public interface MenuDao {
 	public List<Menu> listarMenu() throws Exception;
 	
 	public void addMenu(Menu menu) throws Exception;
+
+	public Menu findById(int id) throws Exception;
+	
 	
 }

@@ -18,6 +18,40 @@
 <body>
 
 <div class="container">
+
+	<div class="alert alert-block">
+		
+	</div>
+
+	<div class="recent_order">
+				<h1>Pedidos </h1>
+				<table id="boxPedidosSolicitados">
+					<thead>
+						<tr>
+							<th width="25%">Fecha</th>
+							<th width="12%" class="center">Identificador</th>
+							<th width="12%" class="center">Direccion</th>
+							<th width="12%" class="center">Estado</th>
+							<th width="12%" class="center">Telefono</th>
+							<th width="12%" class="center">Monto</th>
+							<th width="12%" class="center">Ver detalles</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="">
+							<td width="25%" class="fecha">test</td>
+							<td width="12%" class="identificador">test</td>
+							<td width="25%" class="direccion">test</td>
+							<td width="25%" class="estado">test</td>
+							<td width="25%" class="te�efono">test</td>
+							<td width="25%" class="monto">test</td>
+							<td width="25%" class="detalles"></td>
+						</tr>
+					</tbody>
+				</table>
+				
+	</div>
+
 	<nav class="navbar navbar-light bg-light mt-4">
 	  <a class="navbar-brand" href="#">Productos</a>
 	</nav>

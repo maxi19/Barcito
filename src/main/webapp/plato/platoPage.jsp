@@ -53,6 +53,8 @@
 	<td> 
 		<a class="btn btn-primary"  href="<%=request.getContextPath()%>/loadPLatoForm?id=<%=platos.get(i).getId()%>" > editar </a>
 	 	<button class="btn btn-danger"  data-id="<%=platos.get(i).getId()%>"  onClick="myFunction(this)" > eliminar </button>
+	 	<button class="btn btn-warning"  data-id="<%=platos.get(i).getId()%>"   > Agregar a pedido </button>
+
 	 </td>
 <%		
 }

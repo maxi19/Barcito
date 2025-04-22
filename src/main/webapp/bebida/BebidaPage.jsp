@@ -43,6 +43,7 @@
 	<td> 
 		<a class="btn btn-primary"  href="<%=request.getContextPath()%>/loadBebidaForm?id=<%=bebidas.get(i).getId()%>" > editar </a>
 	 	<button class="btn btn-danger"> eliminar </button>
+	 	<button class="btn btn-danger"> Agregar a pedido </button>
 	 </td>
 <%		
 }

@@ -9,4 +9,6 @@ public interface MenuService {
 	public List<Menu> listar() throws Exception;
 	
 	public void addMenu (Menu menu) throws Exception;
+	
+	public Menu findById(int id ) throws Exception;
 }

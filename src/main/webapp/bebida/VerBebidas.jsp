@@ -37,8 +37,6 @@
                 <h2 class="titulo-producto">Bebida: <%= titulo %></h2>
                 <p class="precio-producto">precio: <%= precio %></p>
                 <p class="descripcion-producto">Descripcion: <%= descripcion %></p>
-             
-                
             </article>
             <% 
                     }

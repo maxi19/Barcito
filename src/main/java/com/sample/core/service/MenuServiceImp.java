@@ -17,4 +17,8 @@ public class MenuServiceImp implements MenuService{
 		this.menuDao.addMenu(menu);
 	}
 
+	public Menu findById(int id) throws Exception {
+		return this.menuDao.findById(id);
+	}
+
 }

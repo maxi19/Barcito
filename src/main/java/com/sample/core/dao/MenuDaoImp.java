@@ -3,19 +3,23 @@ package com.sample.core.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.sample.core.dao.config.Conexion;
 import com.sample.core.domain.Menu;
 import com.sample.core.domain.Plato;
+import com.sample.core.enums.TipoEnum;
 import com.sample.core.exceptions.ErrorException;
 
 public class MenuDaoImp implements MenuDao {
 
 	private FactoryDao factoryDao = new FactoryDaoImp();
 	
-	private static final String queryList = "SELECT id, Precio, Descripcion, idPlato,idBebida,idPostre,tipo FROM menus";
+	private static final String queryList = "SELECT id, Precio, Descripcion, idPlato,idBebida,idPostre, tipo FROM menu";
+
+	private static final String queryGetOne = "SELECT id, titulo, precio, descripcion, idPlato, idPostre, idBebida, tipo FROM menu where id = ?";
 
 	private Conexion conexion = Conexion.getInstance();
 
@@ -54,12 +58,35 @@ public class MenuDaoImp implements MenuDao {
 	}
 
 	public void addMenu(Menu menu) throws Exception {
+
 		
 		
-		
-		
-		
-		
+	}
+
+	public Menu findById(int id) throws Exception {
+		PreparedStatement st = null;
+		ResultSet rs = null;		
+		Menu menu = null;
+		try {
+			st = conexion.dameConnection().prepareStatement(queryGetOne);
+			st.setInt(1, id);
+			rs = st.executeQuery();
+			
+			while (rs.next()) {
+				//revisar como agregr los otros menus
+				menu = new Menu(rs.getInt(1),rs.getString(2),rs.getInt(3), rs.getString(4), TipoEnum.valueOf(rs.getString(8)));
+				//rs.getInt(5);
+				//rs.getInt(6);
+				//rs.getInt(7);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			st.close();
+			rs.close();
+		}
+		return menu;
 	}
 
 }
