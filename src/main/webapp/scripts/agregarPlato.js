@@ -5,12 +5,44 @@ $(function() {
             var titulo =$("#titulo").val();
             var precio =$("#precio").val();
             var descripcion =$("#descripcion").val();
-                $.ajax({
+
+            //creamos una constante , (variable)
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                  confirmButton: "btn btn-success",
+                  cancelButton: "btn btn-danger"
+                },
+                buttonsStyling: false
+              });
+
+
+              swalWithBootstrapButtons.fire({
+                title: "desea agregar el plato?",
+                text: "confirma que desea agregar el nuevo plato!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, deseo agregrarlo!",
+                cancelButtonText: "No, cancelar!",
+                reverseButtons: true
+              }).then((result) => {
+                if (result.isConfirmed) {
+                   //si confirmamos lanzamos la peticion ajax.
+                   
+                   $.ajax({
                     url: contextPath + '/CrearPlato',
                     dataType: 'json',
                     success: function (data) {
-                        alert(data.mensaje   );
-                        window.location.href=contextPath+'/LeerDatosPlato';
+                        Swal.fire({
+                            position: "Se agrego el plato",
+                            icon: "success",
+                            title: "El plato nuevo se agrego correctamente",
+                            showConfirmButton: true,
+                            timer: 3000
+                          }).then((response)=>{
+                            if (result.isConfirmed) {
+                                window.location.href=contextPath+'/home';
+                            }
+                          })
                     },
                     error: function(xhr, status, error) {
                           alert(error);               
@@ -23,6 +55,19 @@ $(function() {
                     cache: true,
                     type: 'post'
                 });
+                
+                } else if (
+                  /* Read more about handling dismissals below */
+                  result.dismiss === Swal.DismissReason.cancel
+                ) {
+                  swalWithBootstrapButtons.fire({
+                    title: "Cancelado",
+                    text: "Se cancelo la operacion :)",
+                    icon: "error"
+                  });
+                }
+              });
+
         });
 
 });

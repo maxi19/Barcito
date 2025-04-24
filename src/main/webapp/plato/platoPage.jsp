@@ -17,7 +17,8 @@
 			var contextPath='<%=request.getContextPath()%>';
 	</script>
 	<script src="<%=request.getContextPath()%>/scripts/eliminarPlato.js"> </script>
-
+	
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <body>
