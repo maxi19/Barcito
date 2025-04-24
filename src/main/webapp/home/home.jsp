@@ -13,6 +13,7 @@
 			var contextPath="<%=request.getContextPath()%>";
 	</script>
 	<script src="<%=request.getContextPath()%>/scripts/scripts-barcito.js"></script>
+		<script src="<%=request.getContextPath()%>/scripts/logout.js"></script>
 	
 </head>
 <body>
@@ -25,6 +26,10 @@
 
 	<div class="recent_order">
 				<h1>Pedidos </h1>
+		  <button type="button" class="btn btn-primary" id="btn-logout">Log Out</button>
+				
+				
+				
 				<table id="boxPedidosSolicitados">
 					<thead>
 						<tr>
