@@ -13,6 +13,7 @@
 			var contextPath='<%=request.getContextPath()%>';
 	</script>
 	<script src="<%=request.getContextPath()%>/scripts/menu-script.js"> </script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	</head>
 	<body>
@@ -20,10 +21,10 @@
 		<div class="container mt-4" >
 			
 		<h1>Menu</h1>
-		<form class="form" id="#formPlato">
-		<div class="form-group">
+		<form class="form" id="menuForm">
+		<div class="form-group" >
 		    <label>Tipo de menu</label>
-		      <select id="inputState" class="form-control" id="cmbTipoMenu">
+		      <select  class="form-control" id="cmbTipoMenu">
 		        <option selected>Choose...</option>
 		        <option>Dia</option>
 		        <option>Estudiantil</option>
@@ -50,9 +51,9 @@
 		      </select>
 		</div>
 		
-		  <div class="form-group">
+		  <div class="form-group" id="menuForm">
 		    <label>Titulo</label>
-		    <input type="text" class="form-control" id="titulo" name="titulo" aria-describedby="emailHelp" placeholder="Enter price">
+		    <input type="text" class="form-control" id="titulo" name="titulo" aria-describedby="emailHelp" placeholder="Enter titulo">
 		  </div>
 		  <div class="form-group">
 		    <label>Descripcion</label>
@@ -62,7 +63,7 @@
 		    <label>Precio</label>
 		    <input type="text" class="form-control" id="precio" name="precio" aria-describedby="emailHelp" placeholder="Enter price">
 		  </div>
-		  <button type="button" class="btn btn-primary" id="btn-confirmar">Submit</button>
+		  <button type="button" class="btn btn-primary" id="btn-crear-menu">Submit</button>
 		
 
 		</form>

@@ -19,6 +19,8 @@ public class MenuDaoImp implements MenuDao {
 	
 	private static final String queryList = "SELECT id, Precio, Descripcion, idPlato,idBebida,idPostre, tipo FROM menu";
 
+	private static final String queryAddMenu= "INSERT INTO menu ( titulo, descripcion, precio, idplato, idpostre, idbebida, tipo) VALUES (?,?,?,?,?,?,?)";
+	
 	private static final String queryGetOne = "SELECT id, titulo, precio, descripcion, idPlato, idPostre, idBebida, tipo FROM menu where id = ?";
 
 	private Conexion conexion = Conexion.getInstance();
@@ -61,6 +63,9 @@ public class MenuDaoImp implements MenuDao {
 
 		
 		
+		
+		
+		
 	}
 
 	public Menu findById(int id) throws Exception {
@@ -87,6 +92,39 @@ public class MenuDaoImp implements MenuDao {
 			rs.close();
 		}
 		return menu;
+	}
+
+	@Override
+	public void addMenu2(String titulo, String descripcion, int precio, String idPlato, String idPostre, String idBebida,
+			TipoEnum tipo) throws Exception {
+		 ResultSet rs = null;
+		 PreparedStatement st = null;
+		 try{
+			st = conexion.dameConnection().prepareStatement(queryAddMenu);
+			st.setString(1, titulo);
+			st.setString(2, descripcion);
+			st.setInt(3, precio);
+			st.setString(4, idPlato);
+			st.setString(5, idPostre);
+			st.setString(6, idBebida);
+			st.setString(7, tipo.toString());
+			int result = st.executeUpdate();
+		 }catch (Exception e) {
+				throw new ErrorException("Hubo un error al realizar la consulta", e);
+		}finally {
+			try {
+				st.close();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}		
+		
+		
+		
+		
+		
 	}
 
 }
