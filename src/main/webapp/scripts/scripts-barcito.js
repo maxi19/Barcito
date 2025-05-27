@@ -12,7 +12,24 @@ $(function() {
                 //iteramos la lista
                 $.each(response, function(index,value){
 
-                    $("#boxGroupMesas").append("");
+                    let divCard = $("<div class = 'card'>  <div>");
+                    let divCardBody = $("<div class='card-body'> "+value.numero+" </div>");
+             
+                    if (value.estadoMesa ==="OCUPADO") {
+                        cssMesa = "btn btn-danger"
+                    } else {
+                        cssMesa ="btn btn-primary"
+                    }
+                    let botoncard = $("<a>",{
+                        href:"",
+                        class :cssMesa,
+                        text :"reservar",
+                    })
+                    verificarSiEstaOcupado(value,botoncard);
+
+                    divCard.append(divCardBody);
+                    divCard.append(botoncard);
+                    $("#boxGroupMesas").append(divCard);
 
                     
                     
@@ -21,7 +38,13 @@ $(function() {
         });
     }  
 
+    function verificarSiEstaOcupado(value , boton) {
+        
+        if (value.estadoMesa ==="OCUPADO") {
+         boton.addClass("disabled");         
+        }
 
+    }
     function popularTablaPedidosEnSession() {
         
         $.ajax({

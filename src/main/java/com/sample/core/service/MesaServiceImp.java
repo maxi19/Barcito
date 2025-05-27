@@ -20,19 +20,24 @@ public class MesaServiceImp implements MesaService{
 		return null;
 	}
 
-	public void changeState(int id, EstadoMesa estadoMesa) throws Exception {
-		// TODO Auto-generated method stub
+	public void changeState(int id, EstadoMesa estadoMesa, String mozo) throws Exception {
+		
 		
 	}
 
-	public void save(int numero, EstadoMesa estadoMesa) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public void save(int numero,String mozo,  EstadoMesa estadoMesa) throws Exception {
+		mesaDao.save(numero, mozo, estadoMesa);
 	}
 
 	public void delete(int id) throws Exception {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Mesa findByNumber(int number) throws Exception {
+
+		return mesaDao.findByNumber(number);
 	}
 
 }

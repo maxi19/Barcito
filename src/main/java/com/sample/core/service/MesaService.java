@@ -12,9 +12,11 @@ public interface MesaService {
 
 	public Mesa findOne(int id) throws Exception;
 	
-	public void changeState(int id, EstadoMesa estadoMesa) throws Exception;
+	public Mesa findByNumber(int number) throws Exception;
+
+	public void changeState(int id, EstadoMesa estadoMesa, String mozo) throws Exception;
 	
-	public void save(int numero, EstadoMesa estadoMesa) throws Exception;
+	public void save(int numero, String mozo,  EstadoMesa estadoMesa) throws Exception;
 
 	public void delete(int id) throws Exception;
 }

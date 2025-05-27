@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.*"%>
+<%@ page import="com.sample.core.domain.Mesa"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +16,15 @@
 			var contextPath="<%=request.getContextPath()%>";
 	</script>
 	<script src="<%=request.getContextPath()%>/scripts/scripts-barcito.js"></script>
-		<script src="<%=request.getContextPath()%>/scripts/logout.js"></script>
-	
-</head>
+	<script src="<%=request.getContextPath()%>/scripts/logout.js"></script>
+	<script src="<%=request.getContextPath()%>/scripts/reservarMesa.js"></script>
+	<script src="<%=request.getContextPath()%>/scripts/mesaScript.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>	
 <body>
+
+
 
 <div class="container">
 
@@ -103,38 +111,10 @@
 	</nav>
 
 	<div class="card-group homeitem mt-4"  id="boxGroupMesas">
-		<!-- 
-		<div class="card m-2" >
-		  <div class="card-body">
-		    <h5 class="card-title">Mesa 1</h5>
-		    <a href="#" class="btn btn-primary">Pedidos</a>
-		    <a href="#" class="btn btn-danger">Reservar</a>    
-		  </div>
-		</div>
-	
-		<div class="card m-2" >
-		  <div class="card-body">
-		    <h5 class="card-title">Mesa 2</h5>
-		    <a href="#" class="btn btn-primary">Pedidos</a>
-		    <a href="#" class="btn btn-danger">Reservar</a>
-		  </div>
-		</div>
 		
-			<div class="card m-2" >
-			  <div class="card-body">
-			    <h5 class="card-title">Mesa 3</h5>
-			    <a href="#" class="btn btn-primary">Pedidos</a>
-			    <a href="#" class="btn btn-danger">Reservar</a>  
-			  </div>
-			</div>
-			<div class="card m-2" >
-			  <div class="card-body">
-			    <h5 class="card-title">Mesa 4</h5>
-			    <a href="#" class="btn btn-primary">Pedidos</a>
-			    <a href="#" class="btn btn-danger">Reservar</a>  
-			  </div>
-			</div>
-			 -->
+		
+		
+		
 	</div>
 
 

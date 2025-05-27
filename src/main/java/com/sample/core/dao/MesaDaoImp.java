@@ -15,7 +15,9 @@ private Conexion conexion = Conexion.getInstance();
 	
 	private static final String queryList = "SELECT id, numero, estado FROM mesa";
 	
-	private static final String queryConsultarPLato = "SELECT id, precio, descripcion, titulo FROM plato where id=?";
+	private static final String queryConsultarMesaPorNumero = "SELECT id, numero, estado, mozo FROM mesa where numero=?";
+	
+	private static final String queryUpdateMesaEstado = "UPDATE mesa SET estado = ?, mozo = ? WHERE numero=?";
 	
 	private static final String queryAddPLato = "INSERT INTO plato ( precio, descripcion, titulo) VALUES (?,?,?)";
 
@@ -33,6 +35,48 @@ private Conexion conexion = Conexion.getInstance();
 		}
 		
 		return mesas;
+	}
+
+
+	@Override
+	public Mesa findByNumber(int number) throws Exception {
+		
+		PreparedStatement st = conexion.dameConnection().prepareStatement(queryConsultarMesaPorNumero);
+		ResultSet rs = null;
+		Mesa mesa=null;
+		st.setInt(1, number);
+		
+		rs = st.executeQuery();
+		
+		if (rs.next()) {	
+		 mesa = new Mesa(rs.getInt(1), rs.getInt(2), EstadoMesa.obtenerEstado(rs.getString(3)));
+		 mesa.setMozo(rs.getString(4));
+		}
+		
+		st.close();
+		rs.close();
+		return mesa;
+	}
+
+
+	@Override
+	public void save(int numero, String mozo, EstadoMesa estadoMesa) throws Exception {
+
+		PreparedStatement st = conexion.dameConnection().prepareStatement(queryUpdateMesaEstado);
+		
+		st.setString(1, estadoMesa.getEstado());
+		st.setString(2, mozo);
+		
+		st.setInt(3, numero);
+
+		int result = st.executeUpdate();	
+	
+		if (result == 0) {
+			throw new Exception("no se pudo actualizar el registro");
+		}
+		
+		st.close();
+		
 	}
 
 	
