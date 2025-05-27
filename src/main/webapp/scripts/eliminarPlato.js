@@ -23,11 +23,16 @@ function myFunction(data){
                     Swal.fire({
                         title: "Eliminado!",
                         text: "El plato se elimino correctamente.",
-                        icon: "success"
-                      });
+                        icon: "success",
+                        showConfirmButton: true,
+                      }).then(response =>{
+                        if (response.isConfirmed) {
+                          location.reload();
+                        }
+                      })
                       //fin sweet alert
 
-                    location.reload();
+                  
                 }
             });
             //fin ajax

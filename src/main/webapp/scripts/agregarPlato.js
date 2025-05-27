@@ -40,7 +40,7 @@ $(function() {
                             timer: 3000
                           }).then((response)=>{
                             if (result.isConfirmed) {
-                                window.location.href=contextPath+'/home';
+                                window.location.href=contextPath+'/LeerDatosPlato';
                             }
                           })
                     },
