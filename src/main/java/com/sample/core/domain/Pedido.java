@@ -1,10 +1,11 @@
 package com.sample.core.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
 
-	private List<Pedible> pedibles;
+	private List<Pedible> pedibles = new ArrayList<Pedible>();
 	
 	private int idMesa;
 	

@@ -1,3 +1,6 @@
+
+
+
 function myFunction(data){
     
     value =  $(data).attr("data-id");
@@ -39,9 +42,46 @@ function myFunction(data){
          
         }
       });
+}
+
+
+f
 
 
 
+
+
+function agregarPedibles(datos) {
+        id =  $(datos).attr("data-id");
+        
+        var data={
+          tipo : "PLATO",
+          idProducto : id
+        }
+
+        $.ajax({
+        url: contextPath + "/agregarPedido?",
+        method: "post",
+        data: data,
+        success: function() {
+            Swal.fire("¡Disponible para pedir!", "La mesa ya puedregar pedido", "success");
+        },
+        error: function(xhr) {
+            Swal.fire("Error", "No se pudo reservar la mesa.", "error");
+        }
+    });
 
 
 }
+
+$(document).ready(function () {
+  
+  //agregar listado por ajax
+
+
+
+
+
+
+
+});

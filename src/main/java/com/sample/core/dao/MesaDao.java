@@ -11,5 +11,7 @@ public interface MesaDao {
 	
 	public Mesa findByNumber(int number) throws Exception;
 	
+	public void changeState(int id,EstadoMesa estado,String mozo) throws Exception;
+	
 	public void save (int numero, String mozo, EstadoMesa estadoMesa) throws Exception;
 }

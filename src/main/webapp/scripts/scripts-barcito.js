@@ -1,61 +1,14 @@
 
 $(function() {
-    /*
-    function cargarMesas() {
-        $.ajax({
-            type: "get",
-            url: contextPath +'/mesas',
-            data: "data",
-            dataType: "json",
-            success: function (response) {
-                //agregamos la logica para agregar las mesas
-                //iteramos la lista
-                $.each(response, function(index,value){
-
-                    let divCard = $("<div class = 'card'>  <div>");
-                    let divCardBody = $("<div class='card-body'> "+value.numero+" </div>");
-             
-                    if (value.estadoMesa ==="OCUPADO") {
-                        cssMesa = "btn btn-danger"
-                    } else {
-                        cssMesa ="btn btn-primary"
-                    }
-                    let botoncard = $("<a>",{
-                        href:"",
-                        class :cssMesa,
-                        text :"reservar",
-                    })
-                    verificarSiEstaOcupado(value,botoncard);
-
-                    divCard.append(divCardBody);
-                    divCard.append(botoncard);
-                    $("#boxGroupMesas").append(divCard);
-
-                    
-                    
-                })
-            }
-        });
-    }  
-*/
-    function verificarSiEstaOcupado(value , boton) {
-        
-        if (value.estadoMesa ==="OCUPADO") {
-         boton.addClass("disabled");         
-        }
-
-    }
+   
     function popularTablaPedidosEnSession() {
         
         $.ajax({
             type: "get",
             url: contextPath +'/pedidos',
-            data: "data",
             dataType: "json",
             success: function (response) {
-                //agregamos la logica para agregar las mesas
-                //iteramos la lista
-                populateTable(data);
+                populateTable(response.pedibles);
             }
         });
 
@@ -84,19 +37,12 @@ $(function() {
     };
     
     function setDataOnRow(rowObject, v) {
-      var identificador = v.identificador;
-      var fecha = v.fecha;
-      var direccion = v.direccion;
-      var estado = v.estado;
-      var telefono = v.telefono;
-      var monto = v.monto;
-      
-      $(rowObject).find(".identificador").html(identificador);
-      $(rowObject).find(".fecha").html(fecha);
-      $(rowObject).find(".direccion").html(direccion);
-      $(rowObject).find(".estado").html(estado);
-      $(rowObject).find(".telefono").html(telefono);
-      $(rowObject).find(".monto").html(monto);
+      var titulo = v.titulo;
+      var precio = v.precio;
+
+      $(rowObject).find(".titulo").html(titulo);
+      $(rowObject).find(".precio").html(precio);
+    /*
       $(rowObject).find(".detalles").append( 
         $('<input/>').attr({
                         type: "button",
@@ -105,12 +51,13 @@ $(function() {
                         onclick: ""
                     })
         );
+        */
     }
 
 
 
     $(document).ready(function () {
-       // cargarMesas();
+        
         popularTablaPedidosEnSession();
 
     });

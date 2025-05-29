@@ -19,9 +19,8 @@ private Conexion conexion = Conexion.getInstance();
 	
 	private static final String queryUpdateMesaEstado = "UPDATE mesa SET estado = ?, mozo = ? WHERE numero=?";
 	
-	private static final String queryAddPLato = "INSERT INTO plato ( precio, descripcion, titulo) VALUES (?,?,?)";
 
-	
+
 	public List<Mesa> list() throws Exception {
 		
 		PreparedStatement st =conexion.dameConnection().prepareCall(queryList);
@@ -66,7 +65,6 @@ private Conexion conexion = Conexion.getInstance();
 		
 		st.setString(1, estadoMesa.getEstado());
 		st.setString(2, mozo);
-		
 		st.setInt(3, numero);
 
 		int result = st.executeUpdate();	
@@ -77,6 +75,30 @@ private Conexion conexion = Conexion.getInstance();
 		
 		st.close();
 		
+	}
+
+
+	@Override
+	public void changeState(int numero, EstadoMesa estado, String mozo) throws Exception {
+	    PreparedStatement st = null;
+	    try {
+	        st = conexion.dameConnection().prepareStatement(queryUpdateMesaEstado);
+	        
+	        st.setString(1, estado.getEstado());
+	        st.setString(2, mozo);
+	        st.setInt(3, numero);
+	        
+	        int filasActualizadas = st.executeUpdate();
+	        
+	        if (filasActualizadas == 0) {
+				throw new Exception("Error al reservar mesa");
+			};
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        throw new Exception("Error al reservar la mesa", e);
+	    } finally {
+	        if (st != null) st.close();
+	    }
 	}
 
 	

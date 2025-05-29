@@ -20,9 +20,8 @@ public class MesaServiceImp implements MesaService{
 		return null;
 	}
 
-	public void changeState(int id, EstadoMesa estadoMesa, String mozo) throws Exception {
-		
-		
+	public void changeState(int numero, EstadoMesa estadoMesa, String mozo) throws Exception {
+		mesaDao.changeState(numero, estadoMesa, mozo);
 	}
 
 	public void save(int numero,String mozo,  EstadoMesa estadoMesa) throws Exception {

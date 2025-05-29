@@ -39,25 +39,18 @@
 				<table id="boxPedidosSolicitados">
 					<thead>
 						<tr>
-							<th width="25%">Fecha</th>
-							<th width="12%" class="center">Identificador</th>
-							<th width="12%" class="center">Direccion</th>
-							<th width="12%" class="center">Estado</th>
-							<th width="12%" class="center">Telefono</th>
-							<th width="12%" class="center">Monto</th>
+							<th width="25%" class="center">Titulo</th>
+							<th width="12%" class="center">Precio</th>
 							<th width="12%" class="center">Ver detalles</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="">
-							<td width="25%" class="fecha">test</td>
-							<td width="12%" class="identificador">test</td>
-							<td width="25%" class="direccion">test</td>
-							<td width="25%" class="estado">test</td>
-							<td width="25%" class="te�efono">test</td>
-							<td width="25%" class="monto">test</td>
-							<td width="25%" class="detalles"></td>
-						</tr>
+					<tr class="">
+							<td width="25%" class="titulo">test</td>
+							<td width="12%" class="precio">test</td>
+							<td width="12%" class="detalles"></td>
+					</tr>
+					
 					</tbody>
 				</table>
 				
@@ -66,7 +59,7 @@
 	<nav class="navbar navbar-light bg-light mt-4">
 	  <a class="navbar-brand" href="#">Productos</a>
 	</nav>
-	<div class="card-group homeitem mt-4" 1>
+	<div class="card-group homeitem mt-4" id="menu-principal">
 		<div class="card m-2" >
 		  <img class="card-img-top" src="https://cdn.pixabay.com/photo/2023/05/31/11/15/fish-8031138_960_720.jpg" alt="Card image cap">
 		  <div class="card-body">

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.sample.core.domain.Pedible;
@@ -30,21 +32,13 @@ public class consultarPedidosController extends HttpServlet{
 		HttpSession misession= req.getSession(true);	
 		
 		Pedido pedido =	(Pedido) misession.getAttribute("pedido");
-		
-		if (pedido != null) {
-			JsonObject list = new JsonObject();
-			for (Pedible pedible : pedido.getPedibles()) {
-				JsonObject object = new JsonObject();
-				object.addProperty("id", pedible.getId());
-				object.addProperty("titulo", pedible.dameTitulo());
-				object.addProperty("precio", pedible.damePrecio());
-				list.add("pedidos", object);
-			}
-			
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+		if (pedido != null) {	
 			PrintWriter out = resp.getWriter();
 			resp.setContentType("application/json");
 			resp.setCharacterEncoding("utf-8");
-			out.print(list.toString());
+			out.print(gson.toJson(pedido));
 			out.flush();			
 		}
 		
