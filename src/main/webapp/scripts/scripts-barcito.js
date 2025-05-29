@@ -1,6 +1,6 @@
 
 $(function() {
-    
+    /*
     function cargarMesas() {
         $.ajax({
             type: "get",
@@ -37,7 +37,7 @@ $(function() {
             }
         });
     }  
-
+*/
     function verificarSiEstaOcupado(value , boton) {
         
         if (value.estadoMesa ==="OCUPADO") {
@@ -110,7 +110,7 @@ $(function() {
 
 
     $(document).ready(function () {
-        cargarMesas();
+       // cargarMesas();
         popularTablaPedidosEnSession();
 
     });

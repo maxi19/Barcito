@@ -17,9 +17,7 @@
 	</script>
 	<script src="<%=request.getContextPath()%>/scripts/scripts-barcito.js"></script>
 	<script src="<%=request.getContextPath()%>/scripts/logout.js"></script>
-	<script src="<%=request.getContextPath()%>/scripts/reservarMesa.js"></script>
-	<script src="<%=request.getContextPath()%>/scripts/mesaScript.js"></script>
-
+	<script src="<%=request.getContextPath()%>/scripts/mesasDisponibles.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>	
 <body>
@@ -110,7 +108,7 @@
 	  <a class="navbar-brand" href="#">Mesas</a>
 	</nav>
 
-	<div class="card-group homeitem mt-4"  id="boxGroupMesas">
+	<div class="card-group homeitem mt-4"  id="contenedorMesas">
 		
 		
 		
