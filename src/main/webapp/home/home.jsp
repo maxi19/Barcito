@@ -126,7 +126,7 @@
          <!--boton Informacion -->
 
           <form class="d-flex">
-            <button class="btn btn-outline-warning d-none d-md-inline-block " type="submit">
+            <button class="btn btn-outline-warning d-none d-md-inline-block " type="button" id="btn-logout">
 				<img alt="Brand" src="<%=request.getContextPath()%>/icon/logout.png">
 			</button>
           </form>
@@ -136,8 +136,6 @@
      
         </div>  
       </nav>
-
-
 
 	<section id="sec">
 		<nav class="navbar navbar-light bg-light">
@@ -220,8 +218,8 @@
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-					
+   
+ <script src="<%=request.getContextPath()%>/scripts/bootstrap/js/bootstrap.bundle.min.js" ></script>
+			
 </body>
 </html>
