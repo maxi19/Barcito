@@ -11,13 +11,13 @@ public class Conexion {
 	private static final Logger log = Logger.getLogger(Conexion.class
 			.getPackage().getName());
 	
-	private static final String HOST = "localhost";
+	private static final String HOST = "db";
 	private static final String URL = "jdbc:mysql://"+HOST+":3306";
-	private static final String DBNAME = "barcito";
+	private static final String DBNAME = "barcitodb";
 	
 	
 	private static final String TIMEZONE = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	private static final String DRIVER = "com.mysql.jdbc.Driver";
+	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 				
 	private static final String USUARIO = "root";
 	private static final String PASSWORD = "admin";
@@ -29,21 +29,23 @@ public class Conexion {
 	
 	private Conexion() {}
 	
-	public Connection dameConnection() {
+	public Connection dameConnection() throws Exception{
 		
 		try {
 			Class.forName(DRIVER);
-			conn = DriverManager.getConnection(URL+"/"+ DBNAME+TIMEZONE, USUARIO, PASSWORD);
+			conn = DriverManager.getConnection(URL+"/"+ DBNAME, USUARIO, PASSWORD);
 			if (!conn.isClosed()) {
 				
 				//log.info("conectado a la base de datos");
 			}	
 			return conn;
 		} catch (ClassNotFoundException e) {
-			//log.error("Error de acceso al driver" + e.getMessage());
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} catch (SQLException e) {
-			//log.error("Error de SQL" + e.getMessage());
+			throw new Exception("no se pudo conectar a la base" + e.getMessage());
+		} catch (Exception e) {
+			throw new Exception("no se pudo conectar a la base" + e.getMessage());
 		}
 		return null;
 	}
