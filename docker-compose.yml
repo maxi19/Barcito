@@ -2,7 +2,7 @@ services:
 
   web:
     container_name: barcap
-    image: barcap
+    image: mrunixmaxi/barcap
     build: .
     restart: always
     ports:
