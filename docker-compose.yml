@@ -2,8 +2,10 @@ services:
 
   web:
     container_name: barcap
-    image: mrunixmaxi/barcap
-    build: .
+    image: mrunixmaxi/barcap:1.0
+    #image: mrunixmaxi/barcap
+    environmet:
+     - JAVA_OPTS=-XX:-UseContainerSupport
     restart: always
     ports:
      - "8080:8080"
@@ -22,7 +24,7 @@ services:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: barcitodb
       MYSQL_PASSWORD: admin
-      
+      MYSQL_USER: admin
     ports:
       - "3306:3306"
     networks:
