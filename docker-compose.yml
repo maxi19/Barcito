@@ -4,7 +4,7 @@ services:
     container_name: barcap
     image: mrunixmaxi/barcap:1.0
     #image: mrunixmaxi/barcap
-    environmet:
+    environment:
      - JAVA_OPTS=-XX:-UseContainerSupport
     restart: always
     ports:
